@@ -1,3 +1,6 @@
+/**
+ * Main Spring Application.
+ */
 package com.abhishek.calculator;
 
 import org.springframework.boot.SpringApplication;
