@@ -1,7 +1,7 @@
-  sh "chmod +x gradlew" 
 pipeline {
      agent any
      stages {
+         sh "chmod +x gradlew" 
           stage("Compile") {
                steps {
                   
