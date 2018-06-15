@@ -35,11 +35,12 @@ publishHTML (target: [
 stage("Package") {     
 steps {          
 sh "./gradlew build"     }}
-          node("docker"){
+          node('docker'){
                stage("Docker build") {     
-steps {          
-sh "docker build -t abhikuri/calculator ."     
-}}
+                    steps {          
+                         sh "docker build -t abhikuri/calculator ."     
+                    }
+               }
           }
 }
 }
