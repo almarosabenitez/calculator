@@ -36,11 +36,11 @@ stage("Package") {
 steps {          
 sh "./gradlew build"     }}
           
-               stage("Docker build") {     
+            /*   stage("Docker build") {     
                     steps {          
                          sh "docker build -t abhikuri/calculator ."     
                     }
-               }
+               }*/
           
 }
 }
