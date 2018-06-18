@@ -43,7 +43,7 @@ sh "./gradlew build"     }}
                }
           stage("Docker push") {
                steps {   
-                    sh "docker login -u="abhikuri" -p="docker"
+                    sh "docker login -u="abhikuri" -p="docker",
                     sh "docker push abhikuri/calculator"     
                }
           }
