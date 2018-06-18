@@ -44,7 +44,7 @@ sh "./gradlew build"     }}
           stager("Docker Login")
           {
                steps{
-                    sh "docker login -u="abhikuri" -p="docker"
+                    sh "docker login -u=abhikuri -p=docker
                }
           }
           stage("Docker push") {
