@@ -41,12 +41,15 @@ sh "./gradlew build"     }}
                          sh "docker build -t abhikuri/calculator ."     
                     }
                }
-          
-          stage("Docker push") {
+          stage('Docker Push') {
                steps {
-                    sh "docker push abhikuri/calculator"     
+                    withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+                         sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                         sh 'docker push abhikuri/calculator'
+                    }
                }
           }
+          
           
           
 }
