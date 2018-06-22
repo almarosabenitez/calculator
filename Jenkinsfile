@@ -43,13 +43,18 @@ sh "./gradlew build"     }}
                }
           stage('Docker Push') {
                steps {
-                    withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+                    withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) 
+                    {
                          sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
                          sh 'docker push abhikuri/calculator'
                     }
                }
           }
-          
+          stage("Deploy to staging") {
+               steps {
+                    sh "docker run -d --rm -p 8765:8080 --name calculator abhikuri/calculator"
+               }
+          }
           
           
 }
