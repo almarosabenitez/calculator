@@ -57,7 +57,8 @@ sh "./gradlew build"     }}
           }
           stage("Acceptance test") {    
                steps {        
-                    sleep 60       
+                    sleep 60
+                    sh "chmod +x acceptance_test.sh" 
                     sh "./acceptance_test.sh"    
                }
                post {  
