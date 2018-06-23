@@ -60,11 +60,12 @@ sh "./gradlew build"     }}
                     sleep 60       
                     sh "./acceptance_test.sh"    
                }
-          }  
-          post {  
+               post {  
                always {
                     sh "docker stop calculator"
                }
           }
+          }  
+          
      }
 }
