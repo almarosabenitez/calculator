@@ -72,7 +72,6 @@ sh "./gradlew build"     }}
 }
 */
 
-
 pipeline {
     agent any
     stages {
@@ -112,21 +111,27 @@ pipeline {
                 sh "./gradlew build"
             }
         }
-         stage ("Deploy to test environment"){
-              steps {
-              }
-              stage ("Automated testing"){
-              steps { echo 'insufficient resources'
-              }
-                   stage ("Deploy to Pre-prod environment"){
-              steps {echo 'insufficient resources'
-              }
-                        stage ("Deploy to Prod environment"){
-              steps {echo 'insufficient resources'
-              }
-         }
-
-         
+        stage("Deploy to test environment"){
+            steps{
+                echo 'out of resources'
+            }
+        }
+        stage("Automated UAT"){
+            steps{
+                echo 'out of resources'
+            }
+        }
+        stage("Deploy to Pre Prod environment"){
+            steps{
+                echo 'out of resources'
+            }
+        }
+        stage("Deploy to Prod environment"){
+            steps{
+                echo 'out of resources'
+            }
+        }
     }
 }
-             } 
+
+
